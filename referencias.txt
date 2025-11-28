@@ -1,0 +1,10 @@
+=============================================================
+                             REFERENCIAS 
+                 Archivo: BI_T2_NuñezCatalina.ipynb
+=============================================================
+
+# **Bibliografía**
+
+Borgersen, K. A. K. (2024). Vibrent Clothes Rental Dataset. Kaggle.  
+https://www.kaggle.com/datasets/kaborg15/vibrent-clothes-rental-dataset
+

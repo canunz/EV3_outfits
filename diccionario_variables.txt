@@ -1,0 +1,69 @@
+=============================================================
+                 DICCIONARIO DE VARIABLES
+=============================================================
+
+Descripción general:
+-------------------------------------------------------------
+El dataset registra publicaciones de prendas en una plataforma
+digital. Cada fila corresponde a una prenda publicada, con datos
+sobre su precio, fecha de publicación y otros atributos.
+
+El objetivo del análisis es estudiar la evolución temporal de las
+publicaciones y descubrir patrones mediante regresión, clasificación
+y agrupamiento aplicados a Business Intelligence.
+-------------------------------------------------------------
+
+VARIABLES PRINCIPALES
+----------------------------------------------------------------------------
+| Nombre         | Tipo de dato | Descripción breve                        |
+|----------------|--------------|------------------------------------------|
+| timeCreated    | datetime     | Fecha/hora de creación de la publicación |
+| retailPrice    | float        | Precio base de venta                     |
+| pricePerWeek   | float        | Precio semanal de uso                   |
+| pricePerMonth  | float        | Precio mensual de uso                   |
+| brand          | string       | Marca o diseñador                       |
+| category       | string       | Tipo de prenda                          |
+| color          | string       | Color principal                         |
+| condition      | string       | Estado del producto (nuevo/usado)       |
+| size           | string       | Talla de la prenda                      |
+| reciente       | int (0/1)    | 1 = Publicación posterior a 2022        |
+| mes            | datetime     | Mes de la publicación                   |
+| publicaciones  | int          | Conteo mensual de publicaciones         |
+| cluster        | int (0–2)    | Grupo asignado por K-Means              |
+-------------------------------------------------------------
+
+VARIABLES DERIVADAS
+-------------------------------------------------------------
+| Variable | Tipo  | Propósito principal                         |
+|-----------|-------|---------------------------------------------|
+| t         | int   | Índice temporal (meses desde el inicio)     |
+| reciente  | int   | Clasifica publicaciones antes/después 2022  |
+| cluster   | int   | Agrupa meses según actividad (baja/media/alta) |
+-------------------------------------------------------------
+
+TRANSFORMACIONES Y LIMPIEZA
+-------------------------------------------------------------
+• Conversión de fechas con `pd.to_datetime(errors='coerce')`
+• Eliminación de duplicados (`drop_duplicates()`)
+• Conversión de precios a numérico (`to_numeric(errors='coerce')`)
+• Sustitución de nulos en precios por 0
+• Agrupación mensual con `groupby('mes').size()`
+• Escalado de variables con `StandardScaler()` para clustering
+• Creación del dataset limpio `df_limpio`
+
+-------------------------------------------------------------
+CALIDAD Y USO
+-------------------------------------------------------------
+• Dataset limpio: sin duplicados ni valores inválidos.
+• Variables numéricas estandarizadas.
+• Cobertura temporal: publicaciones desde 2014 a 2024 aprox.
+• Dataset empleado para análisis temporal, predicción y segmentación.
+
+-------------------------------------------------------------
+FUENTE Y LICENCIA
+-------------------------------------------------------------
+Fuente: Dataset outfits.csv (asignatura Inteligencia de Negocios)
+Licencia: Uso académico, con fines educativos y de investigación.
+Versión de Python: 3.11
+Librerías: pandas, numpy, scikit-learn, seaborn, matplotlib
+=============================================================
